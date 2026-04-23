@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, Body
 from pydantic import BaseModel
 router = APIRouter(
     prefix="/blog",
@@ -28,12 +28,18 @@ def create_comment(blog: BlogModel, id: int,
             description='Some description for comment_id',
             alias="commentId",
             deprecated=True
-        )
+        ),
+        content: str = Body(Ellipsis,
+                            min_length=10,
+                            max_length=50,
+                            regex='^[a-z\s]*$'
+                            )
     ):
     return {
         "blog" : blog,
         "id": id,
-        "comment_id": comment_id
+        "comment_id": comment_id,
+        "content": content
         
     }
     
