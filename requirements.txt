@@ -1,0 +1,4 @@
+fastapi
+uvircorn
+slqalchemy
+psycopg2-binary
