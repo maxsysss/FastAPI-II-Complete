@@ -35,7 +35,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV="C:\Users\ResTIC55\Documents\LEARN\FastAPI-II-Complete\venv"
+=======
+VIRTUAL_ENV="C:\Users\ResTIC55\Documents\SISTEMA\FastAPI-II-Complete\venv"
+>>>>>>> 01480abdaa879c674741d43e01f5255f38bd5a2c
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
