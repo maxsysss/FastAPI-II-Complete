@@ -5,7 +5,7 @@ from pydantic import BaseModel
 router = APIRouter(
     prefix='/blog',
     tags=['blog']
-    )
+)
 
 class Image(BaseModel):
     url: str
@@ -42,7 +42,7 @@ def create_comment(blog: BlogModel, id: int,
             regex='^[a-z\s]*$'
         ),
         v: Optional[List[str]] = Query(['1.0', '1.1', '1.2']),
-        comment_id: int = Path(gt=5, le=10)
+        comment_id: int = Path(None, le=5)
     ):
     return {
         'blog': blog,
