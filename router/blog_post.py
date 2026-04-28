@@ -42,7 +42,7 @@ def create_comment(blog: BlogModel, id: int,
             regex='^[a-z\s]*$'
         ),
         v: Optional[List[str]] = Query(['1.0', '1.1', '1.2']),
-        comment_id: int = Path(None, le=5)
+        comment_id: int = Path(le=5, gt=10)
     ):
     return {
         'blog': blog,
