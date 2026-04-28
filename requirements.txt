@@ -1,11 +1,6 @@
 fastapi
-<<<<<<< HEAD
-uvircorn
-slqalchemy
-=======
 uvicorn
 sqlalchemy
 passlib
 bcrypt
->>>>>>> 01480abdaa879c674741d43e01f5255f38bd5a2c
 psycopg2-binary
