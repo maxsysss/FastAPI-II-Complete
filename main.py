@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from router import blog_get
 from router import blog_post
 from router import user
@@ -8,6 +8,7 @@ from db.database import engine
 from db import models
 from exceptions import StoryException
 from fastapi.responses import JSONResponse
+from starlette.responses import PlainTextResponse
 
 
 app = FastAPI()
@@ -27,5 +28,9 @@ def story_exception_handler(request: Request, exc: StoryException):
     status_code=418,
     content={"detail": exc.name}
   )
+  
+@app.exception_handler(HTTPException)
+def custom_handler(request: Request, exc: StoryException):
+  return PlainTextResponse
 
 models.Base.metadata.create_all(engine)
